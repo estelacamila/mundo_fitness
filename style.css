@@ -281,72 +281,110 @@ button:hover{
     transform:translateY(-2px);
 }
 
-.footer{
-  background:#111;
-  color:#fff;
-  padding:40px 20px 20px;
-  margin-top:60px;
+
+
+
+
+/* ================= FOOTER ================= */
+.footer {
+  background: purple;
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 60px;
 }
 
-.footer-container{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
 }
 
 .footer h3,
-.footer h4{
-  margin-bottom:12px;
+.footer h4 {
+  margin-bottom: 12px;
 }
 
-.footer a{
-  display:block;
-  color:#ddd;
-  text-decoration:none;
-  margin-bottom:6px;
-  transition:0.2s;
+.footer a {
+  display: block;
+  color: #ddd;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: 0.2s;
 }
 
-.footer a:hover{
-  color:#fff;
+.footer a:hover {
+  color: #fff;
 }
 
-.footer-maps{
-  margin:10px 0;
-  line-height:1.4;
+.footer-maps {
+  margin: 10px 0;
+  line-height: 1.4;
 }
 
-.btn-maps{
-  display:inline-block;
-  padding:8px 14px;
-  background:#fff;
-  color:#111;
-  border-radius:8px;
-  font-size:14px;
-  text-decoration:none;
-  transition:0.2s;
+.btn-maps {
+  display: inline-block;
+  padding: 8px 14px;
+  background: green;
+  color: #111;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
-.btn-maps:hover{
-  background:#ddd;
-  transform:translateY(-1px);
+.btn-maps:hover {
+  background: #ddd;
+  transform: translateY(-1px);
 }
 
-.footer-bottom{
-  text-align:center;
-  margin-top:30px;
-  font-size:14px;
-  color:#aaa;
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #aaa;
 }
+
+/* ================= FOOTER RESPONSIVO ================= */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+    padding: 30px 15px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .footer h3,
+  .footer h4 {
+    text-align: center;
+  }
+
+  .footer a {
+    margin-bottom: 8px;
+  }
+
+  .footer-maps {
+    text-align: center;
+  }
+
+  .btn-maps {
+    margin: auto;
+  }
+}
+
 
 @media (max-width:768px){
   .footer{
     text-align:center;
   }
 }
-    
+
 
 /* ================= CATEGORIAS ================= */
 .categories{
