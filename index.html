@@ -1,157 +1,260 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo Fitness | Por Talita Beluzo</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mundo Fitness | Por Talita Beluzo</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h3>Menu</h3>
-            <span class="close-btn" onclick="toggleMenu()">&times;</span>
-        </div>
-        <nav>
-            <a href="#" onclick="voltar(); toggleMenu()">Início</a>
-            <a href="#" onclick="filtrar('praia'); toggleMenu()">Moda Praia</a>
-            <a href="#" onclick="filtrar('fitness'); toggleMenu()">Fitness</a>
-            <a href="#" onclick="filtrar('conjuntos'); toggleMenu()">Conjuntos</a>
-            <a href="#" onclick="filtrar('bale'); toggleMenu()">Balé</a>
-            <a href="#quem-somos" onclick="toggleMenu()">Quem Somos</a>
-        </nav>
+<!-- MENU -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-header">
+    <h3>Menu</h3>
+    <span class="close-btn" onclick="toggleMenu()">&times;</span>
+  </div>
+
+  <nav>
+    <a href="#" onclick="voltar(); toggleMenu()">Início</a>
+
+    <h4>Moda</h4>
+    <a href="#" onclick="filtrar('fitness'); toggleMenu()">Fitness</a>
+    <a href="#" onclick="filtrar('praia'); toggleMenu()">Praia</a>
+    <a href="#" onclick="filtrar('casual'); toggleMenu()">Casual</a>
+    <a href="#" onclick="filtrar('pijama'); toggleMenu()">Pijamas</a>
+
+    <h4>Público</h4>
+    <a href="#" onclick="filtrar('masculino'); toggleMenu()">Masculino</a>
+    <a href="#" onclick="filtrar('infantil'); toggleMenu()">Infantil</a>
+
+    <a href="#promocao" onclick="toggleMenu()">Promoções</a>
+    <a href="#quem-somos" onclick="toggleMenu()">Quem Somos</a>
+    <a href="#contatos" onclick="toggleMenu()">Contatos</a>
+  </nav>
+</div>
+
+<!-- CARRINHO -->
+<div id="cart-sidebar" class="sidebar-cart">
+  <div class="cart-header">
+    <h3>Minha Seleção</h3>
+    <span class="close-btn" onclick="toggleCart()">&times;</span>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-footer">
+    <p>Consulte tamanhos e cores:</p>
+    <button onclick="enviarConsulta()">Consultar Disponibilidade</button>
+  </div>
+</div>
+
+<div id="overlay" onclick="toggleMenu()"></div>
+<div id="overlay-cart" onclick="toggleCart()"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <div class="brand-container">
+    <div class="logo-round">
+      <img src="WhatsApp Image 2026-02-04 at 12.05.40.jpeg">
+    </div>
+    <h1 class="brand">Mundo Fitness</h1>
+  </div>
+
+  <div class="cart-icon" onclick="toggleCart()">🛍️ <span id="cart-count">0</span></div>
+</header>
+
+<!-- HERO -->
+<section class="hero-carousel">
+  <div class="slide active" style="background-image:url('WhatsApp Image 2026-01-14 at 21.13.13 (1).jpeg')"></div>
+  <div class="slide" style="background-image:url('WhatsApp Image 2026-01-14 at 21.13.13.jpeg')"></div>
+</section>
+
+<!-- INFO -->
+<div class="info-bar">
+  ✨ Moda Fitness • Praia • Casual • Pijamas <br>
+  Do tamanho 0 ao Plus Size • Feminino • Masculino • Infantil
+</div>
+
+<!-- PROMO -->
+<section id="promocao" class="promo-semana">
+  <h2>🔥 Promoção da Semana</h2>
+
+  <div class="grid-promocao">
+    <div class="promo-card">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13 (1).jpeg">
+      <h4>Top Fitness</h4>
+      <button onclick="adicionarSacola('Top Fitness')">Adicionar</button>
     </div>
 
-    <div id="cart-sidebar" class="sidebar-cart">
-        <div class="cart-header">
-            <h3>Minha Seleção</h3>
-            <span class="close-btn" onclick="toggleCart()">&times;</span>
-        </div>
-        <div id="cart-items"></div>
-        <div class="cart-footer">
-            <p class="cart-info-text">Consulte tamanhos e cores no WhatsApp:</p>
-            <button class="btn-checkout" onclick="enviarConsulta()">Consultar Disponibilidade</button>
-        </div>
+    <div class="promo-card">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13.jpeg">
+      <h4>Biquíni Classic</h4>
+      <button onclick="adicionarSacola('Biquíni Classic')">Adicionar</button>
     </div>
 
-    <div id="overlay" onclick="toggleMenu()"></div>
-    <div id="overlay-cart" onclick="toggleCart()"></div>
+    <div class="promo-card">
+      <img src="WhatsApp Image 2026-01-14 at 21.33.55.jpeg">
+      <h4>Legging Premium</h4>
+      <button onclick="adicionarSacola('Legging Premium')">Adicionar</button>
+    </div>
 
-    <header>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        
-        <div class="brand-container">
-            <div class="logo-round">
-                <img src="image.png" alt="Logo Mundo Fitness">
-            </div>
-            <h1 class="brand">Mundo Fitness</h1>
-        </div>
+    <div class="promo-card">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39 (1).jpeg">
+      <h4>Pijama Confort</h4>
+      <button onclick="adicionarSacola('Pijama Confort')">Adicionar</button>
+    </div>
+  </div>
+</section>
 
-        <div class="cart-icon" onclick="toggleCart()">
-            🛒 <span id="cart-count">0</span>
-        </div>
-    </header>
+<!-- CATEGORIAS -->
+<h2 id="titulo-colecoes" class="section-title">Coleções</h2>
 
-    <section class="hero-carousel" id="hero-carousel">
-        <div class="slide active" style="background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('WhatsApp Image 2026-01-14 at 21.13.13.jpeg')">
-            <div class="hero-text">
-              
-            </div>
-        </div>
-        <div class="slide" style="background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('WhatsApp Image 2026-01-14 at 21.13.13 (1).jpeg')">
-            <div class="hero-text">
-            </div>
-        </div>
-        <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
+<section class="categories" id="sec-colecoes">
+  <div class="category" onclick="filtrar('fitness')"><div class="overlay-card"><h3>Fitness</h3></div></div>
+  <div class="category" onclick="filtrar('praia')"><div class="overlay-card"><h3>Praia</h3></div></div>
+  <div class="category" onclick="filtrar('casual')"><div class="overlay-card"><h3>Casual</h3></div></div>
+  <div class="category" onclick="filtrar('pijama')"><div class="overlay-card"><h3>Pijamas</h3></div></div>
+</section>
 
-    <div class="info-bar" id="info-bar">✨ Peças selecionadas • Disponibilidade sob consulta</div>
+<h2 id="titulo-publico" class="section-title">Moda por Público</h2>
 
-    <section class="about-section" id="quem-somos">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>Quem Somos</h2>
-                <p>Na <strong>Mundo Fitness</strong>, curada por <strong>Talita Beluzo</strong>, acreditamos que o look certo é o primeiro passo para o bem-estar. Selecionamos cada peça com foco em qualidade premium e modelagens que valorizam o seu corpo, seja no treino, no balé ou no mar.</p>
-            </div>
-        </div>
-    </section>
+<section class="categories" id="sec-publico">
+  <div class="category" onclick="filtrar('masculino')"><div class="overlay-card"><h3>Masculino</h3></div></div>
+  <div class="category" onclick="filtrar('infantil')"><div class="overlay-card"><h3>Infantil</h3></div></div>
+</section>
 
-    <section class="best-sellers" id="queridinhos">
-        <h2 class="section-title">Queridinhos da Semana</h2>
-        <div class="grid-produtos-home">
-            <div class="produto-card-home">
-                <div class="img-container">
-                    <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg" alt="Produto">
-                    <span class="badge">Best Seller</span>
-                </div>
-                <div class="card-info">
-                    <h4>Biquíni Classic</h4>
-                    <button class="btn-add-home" onclick="adicionarSacola('Biquíni Classic')">Adicionar</button>
-                </div>
-            </div>
-            <div class="produto-card-home">
-                <div class="img-container">
-                    <img src="WhatsApp Image 2026-01-14 at 21.33.55.jpeg" alt="Produto">
-                    <span class="badge">Novidade</span>
-                </div>
-                <div class="card-info">
-                    <h4>Legging Glow</h4>
-                    <button class="btn-add-home" onclick="adicionarSacola('Legging Glow')">Adicionar</button>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PRODUTOS -->
+<section class="produtos" id="produtos">
 
-    <h2 class="section-title">Nossas Coleções</h2>
-    <section class="categories" id="categorias">
-        <div class="category" style="background-image: url('WhatsApp Image 2026-01-14 at 22.57.39.jpeg')" onclick="filtrar('praia')">
-            <div class="overlay-card"><h3>Moda Praia</h3></div>
-        </div>
-        <div class="category" style="background-image: url('WhatsApp Image 2026-01-14 at 21.33.55.jpeg')" onclick="filtrar('fitness')">
-            <div class="overlay-card"><h3>Fitness</h3></div>
-        </div>
-        <div class="category" style="background-image: url('WhatsApp Image 2026-01-14 at 22.57.39 (1).jpeg')" onclick="filtrar('conjuntos')">
-            <div class="overlay-card"><h3>Conjuntos</h3></div>
-        </div>
-        <div class="category" style="background-image: url('WhatsApp Image 2026-01-14 at 22.57.39 (2).jpeg')" onclick="filtrar('bale')">
-            <div class="overlay-card"><h3>Balé</h3></div>
-        </div>
-    </section>
+ <div class="lista-cabecalho">
 
-    <section class="produtos" id="produtos">
-        <div class="lista-cabecalho">
-            <button class="btn-voltar" onclick="voltar()">← Voltar</button>
-            <h2 id="titulo-categoria">Produtos</h2>
-        </div>
-        <div class="grid-produtos">
-            <div class="produto-card" data-category="praia">
-                <div class="img-container">
-                    <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg" alt="Produto">
-                </div>
-                <div class="card-info">
-                    <h4>Biquíni Classic</h4>
-                    <p>Tecido premium, secagem rápida.</p>
-                    <button class="btn-add" onclick="adicionarSacola('Biquíni Classic')">Adicionar à sacola</button>
-                </div>
-            </div>
-            <div class="produto-card" data-category="fitness">
-                <div class="img-container">
-                    <img src="WhatsApp Image 2026-01-14 at 22.57.39 (1).jpeg" alt="Produto">
-                </div>
-                <div class="card-info">
-                    <h4>Legging Glow</h4>
-                    <p>Cintura alta e zero transparência.</p>
-                    <button class="btn-add" onclick="adicionarSacola('Legging Glow')">Adicionar à sacola</button>
-                </div>
-            </div>
-        </div>
-    </section>
+<button class="btn-voltar" onclick="voltar()">
+  <span class="arrow">←</span>
+  Voltar
+</button>
 
-    <script src="script.js"></script>
+<h2 id="titulo-categoria">Produtos</h2>
+
+</div>
+  <div class="grid-produtos">
+
+    <!-- FITNESS -->
+    <div class="produto-card" data-category="fitness">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13 (1).jpeg">
+      <h4>Top Fitness</h4>
+      <button onclick="adicionarSacola('Top Fitness')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="fitness">
+      <img src="WhatsApp Image 2026-01-14 at 21.33.55.jpeg">
+      <h4>Legging Fitness</h4>
+      <button onclick="adicionarSacola('Legging Fitness')">Adicionar</button>
+    </div>
+
+    <!-- PRAIA -->
+    <div class="produto-card" data-category="praia">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13.jpeg">
+      <h4>Biquíni Verão</h4>
+      <button onclick="adicionarSacola('Biquíni Verão')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="praia">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg">
+      <h4>Saída de Praia</h4>
+      <button onclick="adicionarSacola('Saída de Praia')">Adicionar</button>
+    </div>
+
+    <!-- CASUAL -->
+    <div class="produto-card" data-category="casual">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39 (1).jpeg">
+      <h4>Conjunto Casual</h4>
+      <button onclick="adicionarSacola('Conjunto Casual')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="casual">
+      <img src="WhatsApp Image 2026-01-14 at 21.33.55.jpeg">
+      <h4>Vestido Casual</h4>
+      <button onclick="adicionarSacola('Vestido Casual')">Adicionar</button>
+    </div>
+
+    <!-- PIJAMA -->
+    <div class="produto-card" data-category="pijama">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg">
+      <h4>Pijama Confort</h4>
+      <button onclick="adicionarSacola('Pijama Confort')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="pijama">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13.jpeg">
+      <h4>Pijama Soft</h4>
+      <button onclick="adicionarSacola('Pijama Soft')">Adicionar</button>
+    </div>
+
+    <!-- MASCULINO -->
+    <div class="produto-card" data-category="masculino">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg">
+      <h4>Camiseta Masculina</h4>
+      <button onclick="adicionarSacola('Camiseta Masculina')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="masculino">
+      <img src="WhatsApp Image 2026-01-14 at 21.33.55.jpeg">
+      <h4>Bermuda Masculina</h4>
+      <button onclick="adicionarSacola('Bermuda Masculina')">Adicionar</button>
+    </div>
+
+    <!-- INFANTIL -->
+    <div class="produto-card" data-category="infantil">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13.jpeg">
+      <h4>Conjunto Infantil</h4>
+      <button onclick="adicionarSacola('Conjunto Infantil')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="infantil">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg">
+      <h4>Pijama Infantil</h4>
+      <button onclick="adicionarSacola('Pijama Infantil')">Adicionar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos" class="about-section">
+  <h2>Quem Somos</h2>
+  <p>
+    Trabalhamos com numerações do tamanho 0 ao Plus Size,
+    valorizando todos os corpos com conforto, qualidade e estilo.
+    Atendemos moda fitness, praia, casual e pijamas
+    para o público feminino, masculino e infantil.
+  </p>
+</section>
+
+<!-- CONTATOS -->
+<section id="contatos" class="contatos">
+  <h2>Contatos</h2>
+  <p>📞 Vendas: (11) 99999-0001</p>
+  <p>💼 Financeiro: (11) 98888-0000</p>
+  <p>📍 Viradouro/SP</p>
+  <a href="https://wa.me/5599999999999">WhatsApp</a>
+</section>
+
+<!-- SOCIAL -->
+<section class="social">
+  <h2>Siga nossas lojas</h2>
+  <p>
+    <a href="#">Instagram</a> |
+    <a href="#">Facebook</a> |
+    <a href="#">TikTok</a>
+  </p>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
