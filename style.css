@@ -13,6 +13,30 @@
     box-sizing: border-box;
 }
 
+/* ================= BANNER DE CUPOM ================= */
+.cupom-banner {
+    background: #7A1C7A; /* amarelo chamativo */
+    color: #7FFFD4; /* texto escuro */
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 2px solid #f5d94c;
+}
+
+.cupom-banner strong {
+    color:red; /* destaque do desconto */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .cupom-banner {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+
+
 /* ===== BOTÃO VOLTAR BONITO ===== */
 .btn-voltar {
     display: inline-flex;
@@ -427,6 +451,8 @@ button:hover {
     font-weight: 600;
 }
 
+
+
 /* ================= PROMO ================= */
 .grid-promocao {
     display: grid;
@@ -512,6 +538,10 @@ button:hover {
     text-decoration: none;
     color: var(--roxo);
     font-weight: 600;
+}
+
+.sidebar-cart button {
+    margin-top: 20px; /* aumenta o espaço entre a mensagem e o botão */
 }
 
 /* ================= RESPONSIVO ================= */
