@@ -179,10 +179,16 @@ function atualizarSacola() {
       </div>
     `;
   });
+
+  // Adiciona a mensagem do cupom no carrinho
+  const cupomMsg = document.createElement("p");
+  cupomMsg.classList.add("cupom-msg");
+  cupomMsg.innerHTML = "💡 Ao utilizar este método de compra, você ganha <strong>10% de desconto</strong>.";
+  container.appendChild(cupomMsg);
 }
 
 /* ===============================
-   ENVIAR CONSULTA WHATSAPP
+   ENVIAR PARA WHATSAPP COM CUPOM
 ================================ */
 
 function enviarConsulta() {
@@ -192,13 +198,16 @@ function enviarConsulta() {
     return;
   }
 
-  const numero = "5511999999999"; // 🔴 TROQUE PELO SEU NÚMERO
+  const numero = "5517999999999"; // número da atendente
 
-  let texto = "Olá! Gostaria de consultar disponibilidade de:\n\n";
+  let texto = "Olá! Gostaria de consultar disponibilidade dos seguintes produtos:\n\n";
 
-  sacola.forEach(item => {
-    texto += "• " + item + "\n";
+  sacola.forEach((item, index) => {
+    texto += `${index + 1}. ${item}\n`;
   });
+
+  // Adiciona a mensagem do cupom
+  texto += "\n💡 Ao utilizar este método de compra, você ganha 10% de desconto.";
 
   const link =
     `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(texto)}`;
